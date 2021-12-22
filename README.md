@@ -12,7 +12,7 @@ This is an example of a Unity client that uses WebSockets to send the current pl
 
 ### Install manually
 
-1. [Download the unity package](https://github.com/krlosflip22/multiplayer-websocket-client-unity/releases/download/1.0.0/websocket-client-unity.unitypackage)
+1. [Download the unity package](https://github.com/krlosflip22/multiplayer-websocket-client-unity/releases/download/1.0.1/websocket-client-unity-1.0.1.unitypackage)
 2. Import the package in an empty Unity project.
 
 ## Usage
@@ -92,4 +92,4 @@ public class WebSocketClient : MonoBehaviour
 
 **1.** [Start the local WebSocket server](https://github.com/krlosflip22/multiplayer-websocket-server-node)
 
-**2.** Run the main scene in Unity or any of the [builds for Windows or Mac OS](https://github.com/krlosflip22/multiplayer-websocket-client-unity/releases/tag/1.0.0).
+**2.** Run the main scene in Unity or any of the [builds for Windows or Mac OS](https://github.com/krlosflip22/multiplayer-websocket-client-unity/releases/tag/1.0.1).
