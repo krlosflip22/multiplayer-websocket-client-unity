@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
 
   public void ReturnToMenu(string menuSceneName)
   {
-    WebSocketHandler.CloseConnection();
+    WebSocketClient.CloseConnection();
     SceneManager.LoadScene(menuSceneName);
   }
 

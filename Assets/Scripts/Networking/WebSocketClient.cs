@@ -4,11 +4,11 @@ using WebSocketSharp;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-public class WebSocketHandler : MonoBehaviour
+public class WebSocketClient : MonoBehaviour
 {
-  static WebSocketHandler instance;
+  public const string WSURL_KEY = "wsurl";
+  private static WebSocketClient instance;
   [SerializeField] PlayerManager playerManager;
-  [SerializeField] string webSocketURL = "ws://localhost:8080";
 
   WebSocket ws;
 
@@ -20,7 +20,7 @@ public class WebSocketHandler : MonoBehaviour
 
   private void Start()
   {
-    ws = new WebSocket(webSocketURL);
+    ws = new WebSocket(PlayerPrefs.GetString(WSURL_KEY));
     ws.OnOpen += OnWSOpen;
     ws.OnMessage += OnWSMessageReceived;
     ws.Connect();

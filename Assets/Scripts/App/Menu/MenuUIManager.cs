@@ -6,14 +6,35 @@ using System.Collections;
 public class MenuUIManager : MonoBehaviour
 {
   [SerializeField] InputField playerName;
+  [SerializeField] InputField serverUrlSettings;
   [SerializeField] Button startBtn;
+  [SerializeField] Button setServerURLBtn;
 
   void Awake()
   {
-    playerName.onValueChanged.AddListener((value) =>
+    string wsUrl = PlayerPrefs.GetString(WebSocketClient.WSURL_KEY);
+    if (!string.IsNullOrEmpty(wsUrl))
     {
-      startBtn.interactable = !string.IsNullOrEmpty(value);
+      serverUrlSettings.text = wsUrl;
+    }
+    else
+    {
+      PlayerPrefs.SetString(WebSocketClient.WSURL_KEY, serverUrlSettings.text);
+    }
+
+    playerName.onValueChanged.AddListener((value) =>
+      {
+        startBtn.interactable = !string.IsNullOrEmpty(value);
+      });
+    serverUrlSettings.onValueChanged.AddListener((value) =>
+    {
+      setServerURLBtn.interactable = !string.IsNullOrEmpty(value);
     });
+  }
+
+  public void SetWSUrl()
+  {
+    PlayerPrefs.SetString(WebSocketClient.WSURL_KEY, serverUrlSettings.text);
   }
 
   public void LoadScene(string sceneName)

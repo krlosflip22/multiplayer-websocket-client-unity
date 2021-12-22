@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraT: {fileID: 1782634391491591555}
-  speed: 0.025
+  speed: 0.05
   xMoveThreshold: 1000
   yMoveThreshold: 1000
   yMaxLimit: 45

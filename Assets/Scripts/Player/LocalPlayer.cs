@@ -26,6 +26,8 @@ public class LocalPlayer : MonoBehaviour
   {
     msgToSend = new TransformMsg();
     msgToSend.Initialize();
+
+    SendMsgToServer();
   }
 
   private void Start()
@@ -53,10 +55,15 @@ public class LocalPlayer : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, xRotCounter, 0);
       }
 
-      msgToSend.data.position.SetValue(transform.position);
-      msgToSend.data.rotation.SetValue(new Vector3(cameraT.localEulerAngles.x, transform.localEulerAngles.y, 0));
-      WebSocketHandler.SendMsg(JsonConvert.SerializeObject(msgToSend));
+      SendMsgToServer();
     }
+  }
+
+  void SendMsgToServer()
+  {
+    msgToSend.data.position.SetValue(transform.position);
+    msgToSend.data.rotation.SetValue(new Vector3(cameraT.localEulerAngles.x, transform.localEulerAngles.y, 0));
+    WebSocketClient.SendMsg(JsonConvert.SerializeObject(msgToSend));
   }
 
   void OnDestroy()
