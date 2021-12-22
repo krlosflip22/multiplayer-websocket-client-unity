@@ -1,7 +1,5 @@
 using UnityEngine;
-using TMPro;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 public class LocalPlayer : MonoBehaviour
 {

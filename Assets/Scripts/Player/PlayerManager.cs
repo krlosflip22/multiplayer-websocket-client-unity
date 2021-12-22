@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
 
   private void Update()
   {
-    // Work the dispatched actions on the Unity main thread
+    // Work the dispatched actions on the Unity main thread because the web sockets callbacks are not running in main thread.
     while (_actions.Count > 0)
     {
       if (_actions.TryDequeue(out var action))
